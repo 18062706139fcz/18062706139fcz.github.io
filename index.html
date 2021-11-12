@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -138,6 +137,10 @@
             flex-grow: 2;
             flex-shrink: -1; */
         }
+        .thr {
+            margin-right: 10px;
+            background-color: skyblue;
+        }
         .bod {
             padding-top: 40px;
             background-color: #fff;
@@ -166,6 +169,13 @@
             height: 30px;
             text-align: center;
         }
+        .dialog {
+            display: none;
+            /* display: block; */
+            margin: 10px 200px;
+            font-size: medium;
+            color: red;
+        }
     </style>
 </head>
 
@@ -182,14 +192,42 @@
         <a href="#">留言</a>
         <a href="#">关于我</a>
         <input type="text" placeholder="请输入内容">
-            <button class="first">登陆</button>
-            <button class="sec">注册</button>
+            <button class="first" onclick="callLoginDialog()">登陆</button>
+            
+            <script>
+                function callLoginDialog() {
+       const loginDom = document.getElementById('login-dialog');
+       loginDom.style.display = 'block';
+   }
+           </script>
+
+            <button class="sec" onclick="callregisterDialog()" >注册</button>
+
+            <script>
+                function callregisterDialog() {
+       const loginDom = document.getElementById('register-dialog');
+       loginDom.style.display = 'block';
+   }
+           </script>
+
+            <button class="thr" onclick="history.go(0)">刷新</button>
         </div>
         <div class="bod">
             <div class="welcome">
                 欢迎来到Yang_shu的个人博客
             </div>
             <div class="content">为了未来的风霜雪月，我与过去诀别！</div>
+            <div class="dialog" id="login-dialog">
+                Username:<input type="text" placeholder="请输入用户名">
+                Password:<input type="text" placeholder="请输入密码">
+            </div>
+            <div class="dialog" id="register-dialog">
+                Username:<input type="text" placeholder="请输入用户名">
+                Password:<input type="text" placeholder="请输入密码">
+                Sure:<input type="text" placeholder="请确认密码">
+                Email: <input type="text" placeholder="请输入邮箱">
+                <!-- Identify: <input type="text" placeholder="请确认"> -->
+            </div>
         </div>
     </div>
 </body>
